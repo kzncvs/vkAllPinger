@@ -19,7 +19,7 @@ for i in range(len(uslist)):
 while True:
     now = vk.messages.get(out = 0, count = 10)
     for i in range(len(now['items'])):
-        if now['items'][i]['body'] == '@all':
+        if (now['items'][i]['body'].find('@all', 0, len(now['items'][i]['body'])) != -1):
             vk.messages.send(peer_id = id + 2000000000, message = mes)
             vk.messages.deleteDialog(peer_id = id + 2000000000)
             break
